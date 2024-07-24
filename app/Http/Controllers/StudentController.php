@@ -72,7 +72,7 @@ class StudentController extends Controller
             $nis = new Nis(['nis' => $request->nis]);
             $student->nis()->save($nis);
         }
-        return redirect()->route('student.index')->with('success', 'Data telah diupdate.');
+        return redirect()->route('student.index')->with('success', 'Data telah diubah.');
     }
 
     /**
@@ -84,4 +84,5 @@ class StudentController extends Controller
         $student->delete();
         return redirect()->route('student.index');
     }
+
 }

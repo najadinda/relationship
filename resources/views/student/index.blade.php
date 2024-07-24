@@ -16,21 +16,28 @@
 
 <h3 class="mt-3">Data Siswa</h3>
 <a href="{{ route('student.create') }}" class="btn btn-lg-2 btn-primary mb-2">Tambah Data</a>
-<table id="example" class="table table-striped w-100">
+
+@if (session('success'))
+    <div class="alert alert-success mt-2">
+        {{ session('success') }}
+    </div>
+@endif
+        
+<table id="example" class="table table-striped w-100 text-white" >
     <thead>
         <tr>
-            <th style="width: 8%; text-align:left;">No.</th>
-            <th>Nama Siswa</th>
-            <th>NIS</th>
-            <th>Aksi</th>
+            <th style="width: 8%; text-align:left; color: white;">No.</th>
+            <th class="text-white">Nama Siswa</th>
+            <th class="text-white">Nomor Induk Siswa</th>
+            <th class="text-white">Aksi</th>
         </tr>
     </thead>
     <tbody>
         @foreach($students as $stud)
         <tr>
-            <td>{{ $loop->iteration }}</td>
-            <td>{{ $stud->nama }}</td>
-            <td>{{ $stud->nis->nis }}</td>
+            <td class="text-white">{{ $loop->iteration }}</td>
+            <td class="text-white">{{ $stud->nama }}</td>
+            <td class="text-white">{{ $stud->nis->nis }}</td>
             <td>
                 <div class="action-buttons">
                     <a href="{{ route('student.edit', $stud->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a>

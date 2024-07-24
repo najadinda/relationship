@@ -2,6 +2,13 @@
 @section('content')
     <div class="container mt-5 mb-5">
         <h3><a href="{{ route('student.index') }}"><i class="bi bi-arrow-left-circle text-black"></i></a> Edit Data Siswa</h3>
+
+        @if (session('success'))
+            <div class="alert alert-success mt-2">
+                {{ session('success') }}
+            </div>
+        @endif
+        
         <div class="row">
             <div class="col-md-12">
                 <div class="card border-10">

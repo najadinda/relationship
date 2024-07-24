@@ -16,4 +16,9 @@ class Student extends Model
     {
         return $this->hasOne(Nis::class);
     }
+
+    public function accounts()
+    {
+        return $this->hasMany(Accounts::class);
+    }
 }
