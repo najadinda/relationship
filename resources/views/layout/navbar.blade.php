@@ -30,10 +30,13 @@
         <a href="/" class="nav-link">Student</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/category" class="nav-link">Product</a>
+        <a href="/jurusan" class="nav-link">jurusan</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Hobby</a>
+        <a href="/siswa" class="nav-link">siswa</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/hobi" class="nav-link">Hobby</a>
       </li>
     </ul>
 </nav>

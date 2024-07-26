@@ -1,4 +1,5 @@
 @extends('layout.layout')
+@include('layout.navbar')
 @section('content')
     <div class="container mt-5 mb-5">
         <h3><a href="{{ route('student.index') }}"><i class="bi bi-arrow-left-circle text-black"></i></a> Edit Data Siswa</h3>
@@ -20,7 +21,6 @@
                                 <label for="title">Nama Siswa</label>
                                 <input type="text" class="form-control" id="nama" name="nama" value="{{ $student->nama }}">
                             </div>
-                            <br>
                             <div class="form-group">
                                 <label for="body">NIS</label>
                                 <input type="number" class="form-control" name="nis" id="nis" value="{{ $student->nis->nis }}">

@@ -17,8 +17,9 @@ class Student extends Model
         return $this->hasOne(Nis::class);
     }
 
-    public function accounts()
+    public function jurusans()
     {
-        return $this->hasMany(Accounts::class);
+        return $this->belongsTo(Jurusan::class);
     }
+
 }

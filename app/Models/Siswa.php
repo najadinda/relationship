@@ -5,18 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Siswa extends Model
 {
     use HasFactory;
 
-    protected $table ='categories';
-    
     protected $fillable = [
-        'name'
+        'nama_siswa', 
+        'nis', 
+        'jurusan_id'
     ];
 
-    public function product()
+    public function jurusan()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Jurusan::class);
     }
 }
+
