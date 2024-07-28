@@ -34,7 +34,7 @@ class SiswaController extends Controller
         $request->validate([
             'nama_siswa' => 'required|string|max:255',
             'nis' => 'required|string|max:255|unique:siswas',
-            'jurusan_id' => 'required|exists:jurusans,id',
+            'jurusan_id' => 'required',
         ]);
 
         Siswa::create([
@@ -69,13 +69,13 @@ class SiswaController extends Controller
         $request->validate([
             'nama_siswa' => 'required|string|max:255',
             'nis' => 'required|string|max:255',
-            'jurusan' => 'required|string|max:255',
+            'jurusan_id' => 'required|string|max:255',
         ]);
     
         $siswa = Siswa::findOrFail($id);
         $siswa->nama_siswa = $request->nama_siswa;
         $siswa->nis = $request->nis;
-        $siswa->jurusan = $request->jurusan;
+        $siswa->jurusan_id = $request->jurusan_id;
         $siswa->save();
         
         return redirect()->route('siswa.index')->with('success', 'Data siswa jurusan telah diubah');

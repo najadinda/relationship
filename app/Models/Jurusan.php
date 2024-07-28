@@ -13,7 +13,7 @@ class Jurusan extends Model
 
     public function siswa()
     {
-        return $this->hasMany(Siswa::class, 'product_id', 'id');
+        return $this->hasMany(Siswa::class);
     }
 }
 

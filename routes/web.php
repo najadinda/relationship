@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,10 @@ Route::get('/jurusan', [JurusanController::class, 'index'])->name('jurusan.index
 Route::get('/jurusan/create', [JurusanController::class, 'create'])->name('jurusan.create');
 Route::post('/jurusan', [JurusanController::class, 'store'])->name('jurusan.store');
 Route::get('/jurusan/{jurusan}', [JurusanController::class, 'show'])->name('jurusan.show');
-Route::get('/jurusan/{jurusan}/edit', [JurusanController::class, 'edit'])->name('jurusan.edit');
-Route::put('/jurusan/{jurusan}', [JurusanController::class, 'update'])->name('jurusan.update');
-Route::delete('/jurusan/{jurusan}', [JurusanController::class, 'destroy'])->name('jurusan.destroy');
+
+Route::get('/siswa', function () {
+    return view('/siswa/index',);
+});
 
 Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
@@ -44,6 +46,10 @@ Route::get('/siswa/{siswa}/edit', [SiswaController::class, 'edit'])->name('siswa
 Route::put('/siswa/{siswa}', [SiswaController::class, 'update'])->name('siswa.update');
 Route::delete('/siswa/{siswa}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
 
-Route::get('/hobi', function () {
-    return view('/hobby/index',);
+Route::get('/role', function () {
+    return view('/role/role',);
 });
+
+Route::get('/role', [UserController::class, 'index'])->name('role.index');
+Route::get('/role/create', [UserController::class, 'create'])->name('role.create');
+Route::post('/role', [UserController::class, 'store'])->name('role.store');

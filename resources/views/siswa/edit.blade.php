@@ -26,15 +26,15 @@
                             <input type="text" class="form-control" id="nis" name="nis" value="{{ $siswa->nis }}">
                         </div>
                         <div class="form-group">
-                                <label for="jurusan">Pilih Jurusan</label>
-                                <select name="jurusan_id" id="jurusan_id" class="form-control" required selected>
-                                    @foreach($jurusan as $jur)
-                                        <option value="{{ $jur->nama_jurusan }}" {{ $siswa->jurusan_id == $jur->id ? 'selected':''}}>
-                                            {{ $jur->nama_jurusan }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
+                            <label for="jurusan">Pilih Jurusan</label>
+                            <select name="jurusan_id" id="jurusan_id" class="form-control" required>
+                                @foreach($jurusan as $jur)
+                                    <option value="{{ $jur->id }}" {{ $siswa->jurusan_id == $jur->id ? 'selected':''}}>
+                                        {{ $jur->nama_jurusan }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
                         <br>
                         <button type="submit" class="btn btn-primary">Update Data</button>
                     </form>

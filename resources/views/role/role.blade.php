@@ -14,8 +14,8 @@
     }
 </style>
 
-<h3 class="mt-3">Data Hobi</h3>
-<a href="" class="btn btn-lg-2 btn-primary mb-2">Tambah Data</a>
+<h3 class="mt-3">Role</h3>
+<a href=" " class="btn btn-lg-2 btn-primary mb-2">Tambah</a>
 
 @if (session('success'))
     <div class="alert alert-success mt-2">
@@ -27,13 +27,23 @@
     <thead>
         <tr>
             <th style="width: 8%; text-align:left; color: white;">No.</th>
-            <th class="text-white">Nama Siswa</th>
-            <th class="text-white">Hobi</th>
+            <th class="text-white">Nama</th>
+            <th class="text-white">Role</th>
             <th class="text-white">Aksi</th>
         </tr>
     </thead>
     <tbody>
-    
+        @foreach($users as $user)
+        <tr>
+            <td>{{ $loop->iteration }}</td>
+            <td>{{ $user->name }}</td>
+            <td>
+                @foreach($user->roles()->get() as $role)
+                    {{ $role->name_role }}
+                @endforeach
+            </td>
+        </tr>
+        @endforeach
     </tbody>
 </table>
 @endsection

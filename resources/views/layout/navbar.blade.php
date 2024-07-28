@@ -30,13 +30,13 @@
         <a href="/" class="nav-link">Student</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/jurusan" class="nav-link">jurusan</a>
+        <a href="/siswa" class="nav-link">Jurusan</a>
       </li>
+      <!-- <li class="nav-item d-none d-sm-inline-block">
+        <a href="" class="nav-link">siswa</a>
+      </li> -->
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/siswa" class="nav-link">siswa</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="/hobi" class="nav-link">Hobby</a>
+        <a href="/role" class="nav-link">Role</a>
       </li>
     </ul>
 </nav>
@@ -64,9 +64,5 @@
 <!-- ChartJS -->
 <script src="{{ asset('assets/plugins/chart.js/Chart.min.js') }}"></script>
 
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('assets/dist/js/demo.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('assets/dist/js/pages/dashboard2.js') }}"></script>
 </body>
 </html>
