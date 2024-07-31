@@ -16,7 +16,6 @@ class CreateSiswasTable extends Migration
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
             $table->string('nama_siswa');
-            $table->string('nis');
             $table->foreignId('jurusan_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

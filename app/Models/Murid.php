@@ -5,16 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Murid extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name_role',
+        'nama_murid',
+        'hobby_id'
     ];
 
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'user_role');
+    public function hobbies(){
+        return $this->belongsToMany(Hobby::class, 'hobby_murid', 'murid_id', 'hobby_id');
     }
 }

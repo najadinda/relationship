@@ -22,10 +22,6 @@
                             <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" value="{{ $siswa->nama_siswa }}">
                         </div>
                         <div class="form-group">
-                            <label for="title">NIS</label>
-                            <input type="text" class="form-control" id="nis" name="nis" value="{{ $siswa->nis }}">
-                        </div>
-                        <div class="form-group">
                             <label for="jurusan">Pilih Jurusan</label>
                             <select name="jurusan_id" id="jurusan_id" class="form-control" required>
                                 @foreach($jurusan as $jur)

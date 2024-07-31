@@ -5,18 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Siswa extends Model
+class Hobby extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nama_siswa', 
-        'jurusan_id'
+        'nama_hobi',
     ];
 
-    public function jurusan()
-    {
-        return $this->belongsTo(Jurusan::class);
+    public function murid(){
+        return $this->belongsToMany(Murid::class);
     }
 }
-

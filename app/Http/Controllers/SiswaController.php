@@ -33,13 +33,11 @@ class SiswaController extends Controller
     {
         $request->validate([
             'nama_siswa' => 'required|string|max:255',
-            'nis' => 'required|string|max:255|unique:siswas',
             'jurusan_id' => 'required',
         ]);
 
         Siswa::create([
             'nama_siswa' => $request->nama_siswa,
-            'nis' => $request->nis,
             'jurusan_id' => $request->jurusan_id,
         ]);
 
@@ -68,13 +66,11 @@ class SiswaController extends Controller
     {
         $request->validate([
             'nama_siswa' => 'required|string|max:255',
-            'nis' => 'required|string|max:255',
             'jurusan_id' => 'required|string|max:255',
         ]);
     
         $siswa = Siswa::findOrFail($id);
         $siswa->nama_siswa = $request->nama_siswa;
-        $siswa->nis = $request->nis;
         $siswa->jurusan_id = $request->jurusan_id;
         $siswa->save();
         
@@ -86,6 +82,8 @@ class SiswaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $siswa = Siswa::find($id);
+        $siswa->delete();
+        return redirect()->route('siswa.index')->with('success', 'Data siswa jurusan telah dihapus');
     }
 }

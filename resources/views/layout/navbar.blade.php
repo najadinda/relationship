@@ -27,16 +27,19 @@
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Student</a>
+        <a href="/" class="nav-link">NIS</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="/siswa" class="nav-link">Jurusan</a>
       </li>
       <!-- <li class="nav-item d-none d-sm-inline-block">
         <a href="" class="nav-link">siswa</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/hobby" class="nav-link">Hobi</a>
       </li> -->
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/role" class="nav-link">Role</a>
+        <a href="/murid" class="nav-link">Hobi</a>
       </li>
     </ul>
 </nav>

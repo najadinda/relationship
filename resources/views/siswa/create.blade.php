@@ -14,10 +14,6 @@
                                 <input type="text" class="form-control" id="nama_siswa" name="nama_siswa" required>
                             </div>
                             <div class="form-group">
-                                <label for="title">NIS</label>
-                                <input type="text" class="form-control" id="nis" name="nis" required>
-                            </div>
-                            <div class="form-group">
                                 <label for="jurusan">Pilih Jurusan</label>
                                 <select name="jurusan_id" id="jurusan_id" class="form-control" required>
                                     @foreach($jurusan as $jur)
