@@ -44,7 +44,7 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        return view('student.show');
+       return view('student.show');
     }
 
     /**
@@ -80,9 +80,36 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        $student = Student::find($id);
+        $student = Student::withTrashed()->find($id);
         $student->delete();
         return redirect()->route('student.index');
     }
 
+    public function softdelete(string $id)
+    {
+        $student = Student::find($id);
+        $student->delete();
+        return redirect()->route('student.index')->with('success', 'Data telah dihapus sementara');
+    }
+
+    public function history()
+    {
+        $students = Student::onlyTrashed()->get();
+        return view('student.history', compact('students'));
+    }
+
+    public function restore(string $id)
+    {
+        $student = Student::onlyTrashed()->find($id);
+        $student->restore();
+        return redirect()->route('student.index')->with('success', 'Data siswa berhasil dikembalikan!');
+    }
+
+    public function forceDelete(string $id)
+    {
+        $student = Student::onlyTrashed()->find($id);
+        $student->forceDelete();
+
+        return redirect()->route('student.index')->with('success', 'Data telah dihapus permanen');
+    }
 }

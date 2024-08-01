@@ -33,7 +33,7 @@
         <a href="/siswa" class="nav-link">Jurusan</a>
       </li>
       <!-- <li class="nav-item d-none d-sm-inline-block">
-        <a href="" class="nav-link">siswa</a>
+        <a href="/jurusan" class="nav-link">jurusan</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="/hobby" class="nav-link">Hobi</a>

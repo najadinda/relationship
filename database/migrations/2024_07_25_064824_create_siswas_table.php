@@ -18,6 +18,7 @@ class CreateSiswasTable extends Migration
             $table->string('nama_siswa');
             $table->foreignId('jurusan_id')->constrained()->onDelete('cascade');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

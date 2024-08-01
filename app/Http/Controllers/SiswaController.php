@@ -44,11 +44,6 @@ class SiswaController extends Controller
         return redirect()->route('siswa.index')->with('success', 'Data siswa jurusan telah ditambah');
     }
 
-    public function show(string $id)
-    {
-        return view('siswa.show');
-    }
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -85,5 +80,33 @@ class SiswaController extends Controller
         $siswa = Siswa::find($id);
         $siswa->delete();
         return redirect()->route('siswa.index')->with('success', 'Data siswa jurusan telah dihapus');
+    }
+
+    public function softdelete(string $id)
+    {
+        $siswa = Siswa::find($id);
+        $siswa->delete();
+        return redirect()->route('siswa.index')->with('success', 'Data siswa jurusan telah dihapus sementara');
+    }
+
+    public function history()
+    {
+        $siswa = Siswa::onlyTrashed()->get();
+        return view('siswa.history', compact('siswa'));
+    }
+
+    public function restore(string $id)
+    {
+        $siswa = Siswa::onlyTrashed()->find($id);
+        $siswa->restore();
+        return redirect()->route('siswa.index')->with('success', 'Data siswa jurusan berhasil dikembalikan');
+    }
+   
+    public function forceDelete(string $id)
+    {
+        $siswa = Siswa::onlyTrashed()->find($id);
+        $siswa->forceDelete();
+
+        return redirect()->route('siswa.index')->with('success', 'Data siswa jurusan telah dihapus permanen');
     }
 }

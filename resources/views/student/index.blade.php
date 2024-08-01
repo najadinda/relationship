@@ -16,9 +16,10 @@
 
 <h3 class="mt-3">Data Siswa</h3>
 <a href="{{ route('student.create') }}" class="btn btn-lg-2 btn-primary mb-2">Tambah Data</a>
+<a href="{{ route('student.history') }}" class="btn btn-lg-2 btn-secondary mb-2 mx-2">History</a>
 
 @if (session('success'))
-    <div class="alert alert-success mt-2">
+    <div class="alert alert-info mt-2" role="alert">
         {{ session('success') }}
     </div>
 @endif
@@ -41,10 +42,10 @@
             <td>
                 <div class="action-buttons">
                     <a href="{{ route('student.edit', $stud->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a>
-                    <form action="{{ route('student.destroy', $stud->id) }}" method="post" class="d-inline">
+                    <form action="{{ route('student.softdelete', $stud->id) }}" method="post" class="d-inline">
                         @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                        @method('GET')
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')"><i class="bi bi-trash"></i></button>
                     </form>
                 </div>
             </td>

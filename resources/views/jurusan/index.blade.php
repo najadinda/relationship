@@ -11,7 +11,7 @@
     </div>
 @endif
 
-<table id="example" class="table table-striped w-100" >
+<table id="example" class="table table-striped" >
     <thead>
         <tr>
             <th class="text-white">ID</th>

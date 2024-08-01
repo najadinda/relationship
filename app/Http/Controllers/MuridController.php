@@ -77,4 +77,31 @@ class MuridController extends Controller
         $murid->delete();
         return redirect()->route('murid.index')->with('success', 'Data Murid telah dihapus');
     }
+
+    public function softdelete(string $id)
+    {
+        $murid = Murid::find($id);
+        $murid->delete();
+        return redirect()->route('murid.index')->with('success', 'Data Murid telah dihapus sementara');
+    }
+
+    public function history()
+    {
+        $murid = Murid::onlyTrashed()->get();
+        return view('murid.history', compact('murid'));
+    }
+
+    public function restore(string $id)
+    {
+        $murid = Murid::withTrashed()->find($id);
+        $murid->restore();
+        return redirect()->route('murid.index')->with('success', 'Data Murid telah dikembalikan');
+    }
+
+    public function forceDelete(string $id)
+    {
+        $murid = Murid::withTrashed()->find($id);
+        $murid->forceDelete();
+        return redirect()->route('murid.index')->with('success', 'Data Murid telah dihapus permanen');
+    }
 }

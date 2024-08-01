@@ -14,9 +14,7 @@
     }
 </style>
 
-<h3 class="mt-3">Data Hobi Murid</h3>
-<a href="{{ route('murid.create') }}" class="btn btn-lg-2 btn-primary mb-2">Tambah Hobi Murid</a>
-<a href="{{ route('murid.history') }}" class="btn btn-lg-2 btn-secondary mb-2 mx-2">History</a>
+<h3 class="mb-3"><a href="{{ route('murid.index') }}"><i class="bi bi-arrow-left-circle text-black"></i></a>  History</h3>
 
 @if (session('success'))
     <div class="alert alert-success mt-2">
@@ -45,11 +43,15 @@
             </td>
             <td>
                 <div class="action-buttons">
-                    <a href="{{ route('murid.edit', $murid->id) }}" class="btn btn-primary btn-sm"><i class="bi bi-pencil-square"></i></a>
-                    <form action="{{ route('murid.softdelete', $murid->id) }}" method="post" class="d-inline">
+                    <form action="{{ route('murid.restore', $murid->id) }}" method="post">
                         @csrf
-                        @method('GET')
-                        <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                        @method('PUT')
+                        <button type="submit" class="btn btn-warning btn-sm" onclick="return confirm('Anda ingin mengembalikan data ini?')"><i class="bi bi-arrow-counterclockwise"></i></button>
+                    </form>
+                    <form action="{{ route('murid.forceDelete', $murid->id) }}" method="post" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')"><i class="bi bi-trash"></i></button>
                     </form>
                 </div>
             </td>
